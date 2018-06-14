@@ -28,7 +28,7 @@
           -configuration_basename vlp16-imu3d.lua"
       output="screen">
     
-    <remap from="points2" to="velodyne" />
+    <remap from="points2" to="velodyne_points" />
   </node>
 
   <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"
