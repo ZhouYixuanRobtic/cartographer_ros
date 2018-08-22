@@ -1,11 +1,26 @@
-1、I use velodyne (16), imu9250,
-2、velodyne(frame_id is velodyne,topic,velodyne_points ),imu(frame_id is imu_link,topic,imu)
-3、Note that the direction of the IMU and the laser can be adjusted to the URDF file
-4、In addition, IMU and velodyne should be compiled separately in other workspaces (not using catkin_make_isolated)
-************************************
-I run roslaunch 
-1、roslaunch velodyne_pointcloud vlp16.launch
-2、roslaunch imu  imu.launch
-3、roslaunch cartographer_ros demo_vlp16_imu3d.launch 
+## 
+**The code in this repository amis at mapping successful with cartographer.**
+The sensors used in this case are IMU and LIDAR.
+## Sensors
+- ### IMU
+  The IMU device used in this project is HI216. You can get some information and technique documents in [HERE](http://www.hipnuc.com/).
 
+  You can find the driver of IMU in the imu_interface_broadcaster folder.All you need is compilling it separately in a **new** workspaces.
 
+- ### LIDAR
+  The LIDAR device used in this project is velodyne 16 lines.
+  
+  The driver of velodyne is [velodyne_driver](http://wiki.ros.org/velodyne_driver). It has a wiki page where you can know it better.
+  
+- ### URDF
+  One thing must be noticed. The relationship(tf) of the IMU and the LIDAR can be adjusted to the URDF file, and it must fit the real world.
+  
+- ### Launch 
+  After all node compiled, you can run cartographer with commands below
+  
+  `roslaunch imu_interface_broadcaster imu.launch`
+  
+  `roslaunch velodyne_pointcloud VLP16_points.launch`
+  
+  `roslaunch cartographer_ros demo_velodyne2d.launch`
+  
