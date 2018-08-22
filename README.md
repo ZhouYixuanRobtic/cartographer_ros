@@ -11,7 +11,9 @@ The sensors used in this case are IMU and LIDAR.
   The LIDAR device used in this project is velodyne 16 lines.
   
   The driver of velodyne is [velodyne_driver](http://wiki.ros.org/velodyne_driver). It has a wiki page where you can know it better.
-  
+
+## Others
+
 - ### URDF
   One thing must be noticed. The relationship(tf) of the IMU and the LIDAR can be adjusted to the URDF file, and it must fit the real world.
   
