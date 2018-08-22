@@ -1,9 +1,0 @@
-<launch>
-  <node name="serial_imu" pkg="imu" type="imu_9250_node" output="screen">
-     <param name="port" type="string" value="/dev/ttyUSB1"/>  
-     <param name="baudrate" type="int" value="115200"/>
-     <param name="frame_id" type="string" value="imu_link"/>
-     <remap from="imu/data" to="imu"/>
-  </node>
-
-</launch>
