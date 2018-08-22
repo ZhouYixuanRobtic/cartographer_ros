@@ -1,0 +1,12 @@
+int16 Acc_0
+int16 Acc_1
+int16 Acc_2
+int16 Gyo_0
+int16 Gyo_1
+int16 Gyo_2
+int16 Mag_0
+int16 Mag_1
+int16 Mag_2
+float32 Eular_0
+float32 Eular_1
+float32 Eular_2
