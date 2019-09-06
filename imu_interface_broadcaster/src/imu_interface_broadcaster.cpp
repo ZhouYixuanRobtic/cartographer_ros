@@ -8,6 +8,7 @@
 #include "packet.h"
 #include "imu_data_decode.h"
 #include "serial.h"
+#include "tf/transform_datatypes.h"
 
 #define M_G 10.0
 #define pi 3.1416
@@ -131,10 +132,7 @@ int main(int argc, char **argv)
      imu_data.header.stamp = ros::Time::now();
      imu_data.header.frame_id = "imu_link";
 
-     imu_data.orientation.x = Q_x;
-     imu_data.orientation.y = Q_y;
-     imu_data.orientation.z = Q_z;
-     imu_data.orientation.w = Q_w;
+     imu_data.orientation = tf::createQuaternionMsgFromRollPitchYaw(Roll,Pitch,Yaw);
 
      imu_data.linear_acceleration.x = Acc_x;
      imu_data.linear_acceleration.y = Acc_y;
