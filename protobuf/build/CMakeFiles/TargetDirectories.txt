@@ -1,0 +1,11 @@
+/home/xcy/catkin_cartographer_ws/protobuf/build/CMakeFiles/install.dir
+/home/xcy/catkin_cartographer_ws/protobuf/build/CMakeFiles/js_embed.dir
+/home/xcy/catkin_cartographer_ws/protobuf/build/CMakeFiles/libprotobuf.dir
+/home/xcy/catkin_cartographer_ws/protobuf/build/CMakeFiles/libprotoc.dir
+/home/xcy/catkin_cartographer_ws/protobuf/build/CMakeFiles/libprotobuf-lite.dir
+/home/xcy/catkin_cartographer_ws/protobuf/build/CMakeFiles/edit_cache.dir
+/home/xcy/catkin_cartographer_ws/protobuf/build/CMakeFiles/protoc.dir
+/home/xcy/catkin_cartographer_ws/protobuf/build/CMakeFiles/list_install_components.dir
+/home/xcy/catkin_cartographer_ws/protobuf/build/CMakeFiles/install/strip.dir
+/home/xcy/catkin_cartographer_ws/protobuf/build/CMakeFiles/install/local.dir
+/home/xcy/catkin_cartographer_ws/protobuf/build/CMakeFiles/rebuild_cache.dir
