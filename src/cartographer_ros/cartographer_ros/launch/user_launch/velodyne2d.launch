@@ -1,0 +1,16 @@
+<launch>
+<!--robot_description-->
+  <param name="robot_description" textfile="$(find cartographer_ros)/urdf/velodyne2d.urdf"/>	
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+<!--cartographer_node-->	
+  <node name="cartographer_node" pkg="cartographer_ros"
+	  type="cartographer_node" args="
+	  -configuration_directory $(find cartographer_ros)/configuration_files
+	  -configuration_basename demo_velodyne2d.lua"
+	  output="screen">
+		<remap from="/imu" to="/imu/data_raw"/>
+		<remap from="points2" to="velodyne_points"/>
+  </node>
+  <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"
+ 	  type="cartographer_occupancy_grid_node" args="-resolution 0.05" />
+</launch> 

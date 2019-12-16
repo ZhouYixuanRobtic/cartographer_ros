@@ -1,0 +1,28 @@
+<launch>
+<!--work online -->
+  <arg name="sim" default="false"/>
+  <arg name= "realWork" default="false"/>
+ 
+  <group if="$(arg sim)">
+    <param name="/use_sim_time" value="true"/>
+    <!--arg name="realWork" value="false"/-->
+      <!--cartographer node-->
+    <include file="$(find cartographer_ros)/launch/velodyne2d.launch"/> 
+      <!-- visualization-->
+    <node name="rviz" pkg="rviz" type="rviz" required="true" args="-d $(find cartographer_ros)/configuration_files/demo_2d.rviz"/>
+    <node name="playbag" pkg="rosbag" type="play" args="--clock $(arg bag_filename)" />
+  </group>
+
+  <group if="$(arg realWork)">
+    <param name="/use_sim_time" value="false"/>
+    <!-- sensor-->
+      <!--imu-->
+      <include file="$(find imu_interface_broadcaster)/launch/imu.launch"/>
+    <!--LIDAR-->
+      <include file="$(find velodyne_pointcloud)/launch/VLP16_points.launch"/>
+    <!--cartographer node-->
+    <include file="$(find cartographer_ros)/launch/velodyne2d.launch"/> 
+      <!-- visualization-->
+    <node name="rviz" pkg="rviz" type="rviz" required="true" args="-d $(find cartographer_ros)/configuration_files/demo_2d.rviz"/>
+  </group>
+</launch>

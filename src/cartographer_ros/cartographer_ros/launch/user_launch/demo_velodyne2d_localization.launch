@@ -1,0 +1,29 @@
+<launch>
+<!--work online-->
+  <param name="/use_sim_time" value="false" />
+<!--robot_description-->
+  <param name="robot_description" command="xacro --inorder  '$(find aubo_gazebo)/urdf/aubo_i5.xacro'"/>
+  <node name="robot_state_publisher" pkg="robot_state_publisher"type="robot_state_publisher" />
+<!--sensor-->
+  <!--imu-->
+  <include file="$(find imu_interface_broadcaster)/launch/imu.launch"/>
+  <!--LIDAR-->
+  <include file="$(find velodyne_pointcloud)/launch/VLP16_points.launch"/>
+<!--cartographer_node-->
+  <node name="cartographer_node" pkg="cartographer_ros"
+      type="cartographer_node" args="
+          -configuration_directory $(find cartographer_ros)/configuration_files
+          -configuration_basename velodyne2d_localization.lua
+          -load_state_filename $(arg load_state_filename)"
+      output="screen">
+    <remap from="imu" to="imu/data_raw"/>
+    <remap from="points2" to="velodyne_points"/>
+  </node>
+
+  <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"
+      type="cartographer_occupancy_grid_node" args="-resolution 0.05" />
+<!--visuallization-->
+  <node name="rviz" pkg="rviz" type="rviz" required="true"
+      args="-d $(find cartographer_ros)/configuration_files/demo_2d.rviz" />
+
+</launch>
