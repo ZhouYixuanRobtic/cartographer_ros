@@ -1,7 +1,0 @@
-<launch>
-	<node name="imu_interface_broadcaster_node" pkg="imu_interface_broadcaster" 
-	type="imu_interface_broadcaster_node" output="screen">
-	<remap from="imu/data" to="imu"/>
-	</node>
-</launch> 
-
