@@ -107,8 +107,8 @@ int main(int argc, char **argv)
   while (ros::ok())
   {
     read_once(Acc, Gyo, Mag, Eular, Quat);
-     Roll = (float)Eular[0]*pi/180.0;
-     Pitch = (float)Eular[1]*pi/180.0;
+     Pitch = (float)Eular[0]*pi/180.0;
+     Roll = (float)Eular[1]*pi/180.0;
      Yaw = (float)Eular[2]*pi/180.0;
 
      Gyro_x = (float)Gyo[0]*pi*0.1/180.0;
